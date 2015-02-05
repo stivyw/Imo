@@ -1,0 +1,30 @@
+<div ng-init="Data.tabs[$parent.tab.i].title='Modal Example'">
+	<div class="row">
+		<div class="col-md-3">
+<button type="button" class="btn btn-danger" data-animation="am-fade-and-slide-top" data-template="views/exemplos/modal/modal.tpl.html" bs-modal='{"title":"Título do ng-bind","content":"Conteúdo do ng-bind"}'>
+Abrir o modal.html
+</button>
+		</div>
+		<div class="col-md-3">
+<button type="button" class="btn btn-danger" data-animation="am-fade-and-slide-top" data-template="views/exemplos/modal/modal.servidor.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+Abrir o modal.servidor.html
+</button>
+
+		</div>
+		<div class="col-md-3">
+<input type="text" ng-model="url"/>
+<button type="button" class="btn btn-default" ng-click="Data.load(url)">
+Load
+</button>
+		</div>
+
+		<div class="col-md-3">
+
+<input type="text" class="form-control" ng-model="url"
+	ng-options="unidade for unidade in unidades"
+	ng-init="unidades=['Secretaria da Educação','Secretaria da Securança','Secretaria da Saúde','Secretaria do Esporte']"
+	placeholder="Secretaria" bs-typeahead />
+
+		</div>
+	</div>
+</div>

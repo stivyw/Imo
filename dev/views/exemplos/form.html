@@ -1,0 +1,267 @@
+<ul class="nav nav-tabs" role="tablist" ng-init="Data.tabs[$parent.tab.i].title='Servidor'">
+	<li ng-class="{active:SelfTab==1}">
+		<a ng-click="SelfTab=1" href="javascript:void(0);" ng-init="SelfTab=1">Dados Cadastrais</a>
+	</li>
+	<li ng-class="{active:SelfTab==2}">
+		<a ng-click="SelfTab=2" href="javascript:void(0);">Permissões</a>
+	</li>
+</ul>
+
+<div class="tab-content">
+	<div ng-class="{active:SelfTab==1}" class="tab-pane">
+		<!-- Pessoais -->
+		<!-- Dados Cadastrais -->
+		<div class="row">
+			<div class="col-xs-4">
+				<label for="nome">Nome</label>
+				<input id="nome" class="form-control" type="text" placeholder="Nome">
+				<span class="help-block">Ex: Francisco da Silva</span>
+			</div>
+			<div class="form-group col-xs-3">
+				<label for="login">Email</label>
+				<input type="text" class="form-control" id="login" placeholder="Login">
+			</div>
+			<div class="col-xs-2">
+				<label for="CPF">CPF</label>
+				<input id="cpf" class="form-control" type="text" placeholder="CPF">
+				<span class="help-block">&nbsp;</span>
+			</div>
+			<div class="col-xs-2">
+				<label class="radio">Bloqueado</label>
+				<div class="radio-inline">
+					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					S
+				</div>
+				<div class="radio-inline">
+					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					N
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-3">
+				<label for="senha">Senha</label>
+				<input type="senha" class="form-control" placeholder="Senha" required autofocus>
+				<label for="confirmacao_senha">Confirmação de senha</label>
+				<input type="password" class="form-control" placeholder="Confirmação de Senha" required>
+			</div>
+		</div>
+	</div><!-- Fim Dados Cadastrais -->
+</div>
+<div ng-class="{active:SelfTab==2}" class="tab-pane">
+	<div class="row">
+		<div class="col-xs-4">
+			<label for="pesquisar_permissao">Pesquisar Permissão</label>
+			<input type="text" class="form-control" id="pesquisar_permissao" placeholder="Pesquisar Permissão" title="Insira uma permissão para busca. Ex: Unidades" bs-tooltip />
+			<span class="help-block">&nbsp;</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-9">
+			<table class="table table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>Permissão</th>
+						<th>Inserir</th>
+						<th>Visualizar</th>
+						<th>Editar</th>
+						<th>Bloquear</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Secretarias/Órgãos</td  >
+						<td><!-- Checks -->
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Unidades</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Operadores</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Servidores</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Cargos</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Simbologias</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr>
+					<tr>
+						<td>Relatórios</td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+						<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="">
+							</label>
+						</div></td>
+					</tr><!-- Fim checks -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div><!-- Fim Permissões -->
+</div>
+</div>

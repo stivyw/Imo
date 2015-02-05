@@ -1,0 +1,29 @@
+<div ng-init="tab.title='Simbologia'"></div>
+<div ng-init="tab.icon='glyphicon glyphicon-edit'"></div>
+<div ng-init="edit=Data.edit({url:'model/Simbologia', scope: tab}).load(tab.id)"></div>
+<div ng-if="!tab.id" ng-init="tab.stat=2"></div>
+<div ng-if="!tab.id" ng-init="edit.disabled=false"></div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+
+			<bs-alert type="danger" arr="edit.res.error">
+				<strong>Ops!</strong> Erro ao tentar concluir a ação, corrija os erros mostrados a seguir e tente novamente ou contate o <a class="alert-link" href="http://caririweb.com/suport" target="_blank">suporte</a>.
+			</bs-alert>
+
+			<div class="alert alert-success" role="alert" ng-if="edit.res.ok">
+				<strong>Ok!</strong> Dados gravados com sucesso.
+			</div>
+
+			<form>
+				<div class="row">
+					<bs-txt disabled="edit.disabled" class="col-md-3" md="edit.form.nome" label="Nomeclatura da simbologia" >Nomeclatura</bs-txt>
+					<bs-txt disabled="edit.disabled" class="col-md-2" md="edit.form.salario_base" label="Sal Base" placeholder="0,00">Informe o salário base</bs-txt>
+				</div>
+				<bs-footer class="footer" align="right"></bs-footer>
+			</form>
+
+		</div>
+	</div>
+</div>

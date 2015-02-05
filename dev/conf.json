@@ -1,0 +1,41 @@
+{
+	"menuBar":[
+		{"label":"Tabelas", "dpdown":[
+			{"label": "Secretarias/Órgãos", "params":{"url":"views/rh/orgaos/consultar.html"}},
+			{"label": "Unidades","params":{"url": "views/rh/unidades/consultar.html"}},
+			{"label": "Servidores", "params":{"url": "views/rh/servidores/consultar.html"}},
+			{"label": "Simbologias", "params":{"url": "views/rh/simbologias/consultar.html"}},
+			{"label": "Cargos", "params":{"url": "views/rh/cargos/consultar.html"}}
+		]},
+		{"label":"Sistema", "dpdown":[
+			{"label": "Coordenação", "params":{"url": "views/sistema/operacao_da_gerencia.html"}},
+			{"label": "Operadores", "params":{"url": "views/sistema/operadores/consultar.html"}},
+			{"divider":true},
+			{"label": "Configurações", "params":{"url": "views/sistema/config.html"}},
+			{"label": "Gerenciar Requerimentos", "params":{"url": "views/sistema/gerenciar_requerimento.html"}}
+		]},
+		{"label":"Imoveis", "dpdown":[
+			{"label": "Exemplo de produto 8", "params":{"url": "views/imo/Product/Edit.html","id":8}},
+			{"label": "Produtos", "params":{"url": "views/imo/Product/List.html"}}
+		]},
+		{"label":"Exemplos/Dev", "dpdown":[
+			{"label": "Form com tabs", "params":{"url": "views/exemplos/form.html"}},
+			{"label": "Modal", "params":{"url": "views/exemplos/modal/modal.html"}},
+			{"label": "Eventos", "params":{"url": "views/sistema/eventos.html"}},
+			{"divider":true},
+			{"label": "Orgao 2", "params":{"url": "views/rh/orgaos/editar.html","id":2}},
+			{"label": "Unidade 1", "params":{"url": "views/rh/unidades/editar.html","id":1}},
+			{"label": "Cargo 1", "params":{"url": "views/rh/cargos/editar.html","id":1}},
+			{"label": "Simb 1", "params":{"url": "views/rh/simbologias/editar.html","id":1}},
+			{"label": "Servidor 1", "params":{"url": "views/rh/servidores/editar.html","id":1}}
+		]}
+	],
+	"SELECTS": {
+		"TPS_LOGRADOURO": ["Selecione...", "Rua", "Avenida","Travessa", "Beco", "Alto", "Vila", "Sítio", "Outros"],
+		"ESCOLARIDADE": ["Selecione...", "Fundamental Incompleto", "Fundamental Completo","Médio Completo", "Médio Incompleto", "Superior Completo", "Superior Incompleto"],
+		"ESTADO_CIVIL": ["Selecione...", "Solteiro", "Casado","Divorciado", "Viúvo"],
+		"UFS": {"AL":"Alagoas", "CE":"Ceará","BA":"Bahia","RJ":"Rio de Janeiro"},
+		"MUNICIPIOS": {"AL":{"ATL":"Atalaia", "MAC":"Maceió"}, "CE":{"JNT":"Juazeiro do Norte","BAR":"Barbalha","CRT":"Crato"},"BA":{"JBA":"Juazeiro"},"RJ":{"RIO":"Rio de Janeiro","FAV":"Favela"}},
+		"SEXO" : {"F":"Feminino","M":"Masculino"}
+	}
+}

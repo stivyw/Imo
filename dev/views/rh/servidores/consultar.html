@@ -1,0 +1,85 @@
+<div ng-init="_filters={orgao_id:{lbl:'Secretaria/Órgão'},cpf:{lbl:'CPF'},matricula:{lbl:'Matrícula'},nome:{lbl:'Nome'}}"></div>
+<div ng-init="tab.title='Servidores'"></div>
+<div ng-init="tab.icon='glyphicon glyphicon-search'"></div>
+<div ng-init="tab.stat=2"></div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="btn-group">
+			<button class="btn btn-info btn-sm" type="button" ng-repeat="(key, val) in filters" ng-click="removeItem(key,'filters')" title="Deletar?">
+				<span class="badge">{{_filters[key].lbl}}</span> {{val}}
+			</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<label>Filtrar por: </label>
+			<select class="form-control" ng-options="key as value.lbl for (key, value) in _filters" ng-model="filter" ng-init="filter='nome'"></select>
+			<span class="help-block">&nbsp;</span>
+		</div>
+		<div class="col-sm-6">
+			<label>Dados</label>
+			<div class="input-group">
+				<input type="text" placeholder="Dados" class="form-control" ng-model="filters[filter]" />
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" ng-click="lst=Data.list({url:'model/Servidor',params:{filters:filters}, scope:tab}).set()" ng-disabled="tab.stat==1" ng-class="{'btn-warning':tab.stat==1}">Carregar!</button>
+				</span>
+			</div>
+			<span class="help-block">&nbsp;</span>
+		</div>
+	</div>
+	
+	<div class="alert alert-info" role="alert" ng-if="!lst">
+		<strong>Olá!</strong> Insira algum filtro para sua pesquisa, ou se preferir, você pode buscar sem utilizar filtros. Basta clicar no botão "Carregar!"<br>
+		Se preferir, você pode cadastrar clicando <a class="alert-link" href="javascript:void(0);" ng-click="Data.newTab({url:'views/rh/servidores/editar.html'})">aqui</a>
+	</div>
+	<div class="alert alert-warning" role="alert" ng-if="lst.res.total===0">
+		<strong>Ops!</strong> Nenhum registro encontrado. 
+		<a class="alert-link" href="javascript:void(0);" ng-click="Data.newTab({url:'views/rh/servidores/editar.html'})">Cadastrar agora?</a>
+	</div>
+	<bs-alert type="danger" arr="lst.res.error">
+		<strong>Ops!</strong> Erro ao tentar concluir a ação, corrija os erros mostrados a seguir e tente novamente ou contate o <a class="alert-link" href="http://caririweb.com/suport" target="_blank">suporte</a>.
+	</bs-alert>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<pagination class="pull-right"></pagination>
+			<table class="table table-bordered table-hover table-condensed" ng-if="lst.res.total>0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nome</th>
+						<th>Matrícula</th>
+						<th>CPF</th>
+						<th>Secretaria</th>
+						<th>Unidade</th>
+						<th>Tipo de cargo</th>
+						<th>Cargo</th>
+						<th colspan="2" style="margin-left: 2px">Operações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in lst.res.data">
+						<td>{{item.id}}</td>
+						<td>{{item.nome}}</td>
+						<td>{{item.matricula}}</td>
+						<td>{{item.cpf}}</td>
+						<td>{{item.secretaria_id}}</td>
+						<td>{{item.unidade_id}}</td>
+						<td>{{item.cargo.tp}}</td>
+						<td>{{item.cargo.name}}</td>
+						<td><a class="btn btn-small btn-warning"  href="javascript:void(0);" ng-click="Data.newTab({url:'views/rh/servidores/editar.html',id:item.id})"><i class="glyphicon glyphicon-edit"></i> </a></td>
+						<td>
+						<button type="button" class="btn btn-small btn-info" data-animation="am-fade-and-slide-top"
+						data-template="views/rh/servidores/modal.detalhes.html" bs-modal="item">
+							<i class="glyphicon glyphicon-search"></i>
+						</button></td>
+					</tr>
+				</tbody>
+			</table>
+			<pagination class="pull-right"></pagination>
+		</div>
+	</div>
+</div>

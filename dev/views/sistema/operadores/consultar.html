@@ -1,0 +1,134 @@
+<div class="content" ng-init="Data.tabs[$parent.tab.i].title='Operador'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Consultar Operador</h2>
+				</div>
+				<!-- Inputs -->
+				<form role="form">
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="nome">Nome</label>
+							<input id="nome" type="text" placeholder="Nome" class="form-control" />
+							<span class="help-block">Ex: Jose</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<label for="cpf">CPF</label>
+							<input id="cpf" type="text" placeholder="CPF" class="form-control" />
+							<span class="help-block">&nbsp;</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<button type="button" class="btn btn-primary">
+								Buscar
+							</button>
+						</div>
+					</div>
+					<div class="alert alert-warning" role="alert">
+						<strong>Ops!</strong> Nenhum registro encontrado.
+						<a class="alert-link" href="javascript:void(0);" ng-click="Data.newTab('views/sistema/operadores/cadastrar.html')">Cadastrar agora?</a>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<table class="table table-bordered table-hover table-condensed">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nome</th>
+										<th>CPF</th>
+										<th>Operações</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Francisco Jose de Sousa</td>
+										<td>xxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="javascript:void(0);" ng-click="Data.newTab('views/sistema/operadores/editar.html')"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Antonio Cicero da Silva</td>
+										<td>xxxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>joao</td>
+										<td>xxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>maria</td>
+										<td>xxxxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>carlos</td>
+										<td>xxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>antonia</td>
+										<td>xxxxxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>julia</td>
+										<td>xxxxxxxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+									<tr>
+										<td>8</td>
+										<td>pedro</td>
+										<td>xxxxxxxxxxxxx</td>
+										<td><a class="btn btn-small btn-warning" href="#"><i class="glyphicon glyphicon-edit"></i> </a></td>
+									</tr>
+								</tbody>
+							</table>
+							<strong>Mostrando 10 registro(s) de 26</strong>
+						</div>
+
+						<ul class="pagination">
+							<li>
+								<a href="#">&laquo;</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+					<hr>
+					<div align="right" class="footer"></div>
+					<!--<button type="submit" class="btn btn-default">
+					Submit
+					</button> -->
+				</form><!-- Inputs -->
+			</div>
+		</div>
+
+	</div><!-- container -->
+</div>

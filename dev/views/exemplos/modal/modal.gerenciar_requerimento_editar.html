@@ -1,0 +1,82 @@
+<div class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="$hide()">
+					&times;
+				</button>
+				<h4 class="modal-title">Detalhes</h4>
+			</div>
+			<div class="modal-body">
+
+				<div class="row">
+					<div class="col-ms-9">
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="2">{{name}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><b>Secretaria/Órgão</b></td><td>{{secretaria}}</td>
+								</tr>
+								<tr>
+									<td><b>Unidade</b></td><td>Posto de Saúde Sinobilina Peixoto</td>
+								</tr>
+								<tr>
+									<td><b>Cargo</b></td><td>Auxiliar de Serviços Gerais</td>
+								</tr>
+								<tr>
+									<td><b>Tipo de Cargo</b></td><td>Contrato temporário</td>
+								</tr>
+								<tr>
+									<td><b>Requerimento</b></td><td>Férias</td>
+								</tr>
+								<tr>
+									<td><b>Justificativa</b></td><td>
+									<div class="row">
+										<div class="col-xs-12">
+											<textarea class="form-control" rows="3" placeholder="Servidor solicita férias durante o período aquisitivo de 12/2014" disabled title="Campo de leitura" bs-tooltip></textarea>
+										</div>
+									</div></td>
+								</tr>
+								<hr>
+								<tr>
+									<td><b>Quantidade de Servidores com o mesmo requerimento para esta unidade</b></td><td>2</td>
+								</tr>
+								<tr>
+									<td><b>Liberar requerimento</b></td><td>
+									<div class="row">
+										<div class="col-xs-2">
+											<div class="radio">
+												<input type="radio" name="optionsRadios" id="situacaoativo" value="option1" checked>
+												Sim
+											</div>
+											<div class="radio">
+												<input type="radio" name="optionsRadios" id="situacaoinativo" value="option2">
+												Não
+											</div>
+										</div>
+									</div></td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" title="Clique para visualizar os eventos referentes ao servidor" href="#">
+					Salvar
+				</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">
+					Fechar
+				</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,485 @@
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Configurações do sistema'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Configurar variáveis do sistema</h2>
+				</div>
+				<div class="row">
+					<div class="col-xs-2">
+						<label for="requerimento">Ano de vigência</label>
+						<select id="requerimento" name="requerimento" class="form-control">
+							<option value="0">Selecione...</option>
+							<option value="1">2015</option>
+							<option value="2">2016</option>
+							<option value="3">2017</option>
+							<option value="4">2018</option>
+							<option value="5">2019</option>
+							<option value="6">2020</option>
+							<option value="7">2021</option>
+							<option value="8">2022</option>
+							<option value="9">2023</option>
+							<option value="10">2024</option>
+							<option value="11">2025</option>
+						</select>
+					</div>
+				</div>
+				<span class="help-block">&nbsp;</span>
+				<!-- Inputs -->
+				<div class="panel panel-default">
+					<!-- Panel default -->
+					<div class="panel-heading">
+						<h3 class="panel-title">Comportamento do sistema</h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-2">
+								<label for="sal_vigente">Salário minimo</label>
+								<input id="sal_vigente" class="form-control" type="text" placeholder="Salário mínimo vigente" title="Informe o salário mínimo vigente para o ano corrente. Ex: 724 " bs-tooltip />
+								<span class="help-block">&nbsp;</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<form name="timepickerForm" class="form-group" role="form">
+								<div class="row">
+									<div class="col-xs-2">
+										<div class="form-group" ng-class="{'has-error': timepickerForm.time.$invalid}">
+											<label for="control-label"><i class="fa fa-clock-o"></i> Horário inicial </label>
+											<input class="form-control" size="8" ng-model="time" name="time" bs-timepicker type="text">
+										</div>
+									</div>
+									<div class="col-xs-2">
+										<div class="form-group" ng-class="{'has-error': timepickerForm.time2.$invalid}">
+											<label for="control-label"><i class="fa fa-clock-o"></i> Horário final</label>
+											<input class="form-control" size="8" name="time2" ng-model="selectedTimeAsNumber" bs-timepicker type="text">
+										</div>
+									</div>
+								</div>
+							</form><!-- Fim Campos TimePick -->
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<strong>Dias de funcionamento do sistema</strong>
+								<div class="form-inline">
+									<!-- checks -->
+									<div class="checkbox">
+										<label>
+											<input type="checkbox">
+											Seg </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Ter </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Quar </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Quin </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Sex </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Sab </label>
+									</div>
+									<div class="checkbox" align="left">
+										<label>
+											<input type="checkbox">
+											Dom </label>
+									</div><!-- Fim checks -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- Panel default -->
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<strong>Esta mensagem irá aparecer em: MENU "Sistema" > "Coordenação" COLUNA "Detalhes" BOTÃO "Visualizar"<small> (Ou poderá manter a mensagem padrão)</small></strong>
+						<form role="form">
+							<div class="row">
+								<!-- Panel Success -->
+								<div class="panel panel-success col-xs-6">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Férias</strong></h3>
+									</div>
+									<div class="panel-body">
+										<div class="col-xs-12">
+											<textarea class="form-control" rows="6" placeholder="Servidor encontra-se de férias durante a competência de: {competencia}. Previsão de retorno: {previsaoRetorno}" title="&nbsp;" bs-tooltip disabled="" ></textarea>
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="checkbox" align="left">
+											<label>
+												<input type="checkbox">
+												Editar campo </label>
+										</div>
+									</div>
+								</div><!-- Fim Panel Sucess -->
+								<!-- Panel info -->
+								<div class="panel panel-info col-xs-6">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Informações</strong></h3>
+									</div>
+									<div class="panel-body">
+										<div class="col-xs-12">
+											<textarea class="form-control" rows="6" placeholder="Servidor encontra-se de licença Maternidade prevista na LEI N° 8.861, DE 25 DE MARÇO DE 1994. Previsão de retorno: {previsaoRetorno}" title="&nbsp;" bs-tooltip disabled="" ></textarea>
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="checkbox" align="right">
+											<label>
+												<input type="checkbox">
+												Editar campo </label>
+										</div>
+									</div>
+								</div><!-- Fim Panel info -->
+							</div>
+							<div class="row">
+								<!-- Panel warning -->
+								<div class="panel panel-warning col-xs-6">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Atenção</strong></h3>
+									</div>
+									<div class="panel-body">
+										<div class="col-xs-12">
+											<textarea class="form-control" rows="6" placeholder="Solicitação de férias para a competência {competencia} enviada, aguardando retorno." title="&nbsp;" bs-tooltip disabled="" ></textarea>
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="checkbox" align="left">
+											<label>
+												<input type="checkbox">
+												Editar campo </label>
+										</div>
+									</div>
+								</div><!-- Fim Panel warning -->
+								<!-- Panel danger -->
+								<div class="panel panel-danger col-xs-6">
+									<div class="panel-heading">
+										<h3 class="panel-title"><strong>Importante</strong></h3>
+									</div>
+									<div class="panel-body">
+										<div class="col-xs-12">
+											<textarea class="form-control" rows="6" placeholder="Ops, De acordo com o regimento interno da Divisão de Recursos Humanos, seu pedido de férias foi negado por ultrapassar a quantidade de Servidores ausentes na competência de {competencia} desta unidade!<br> OU <br> Ops, Seu pedido foi negado por não respeitar o período hábil de solicitação de férias para a competência {competencia}." title="&nbsp;" bs-tooltip disabled="" ></textarea>
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="checkbox" align="right">
+											<label>
+												<input type="checkbox">
+												Editar campo </label>
+										</div>
+									</div>
+								</div><!-- Fim Panel danger -->
+							</div>
+						</form><!-- Inputs -->
+						<div class="panel panel-default">
+							<!-- Panel default -->
+							<div class="panel-heading">
+								<h3 class="panel-title"><strong>Unidades</strong></h3>
+							</div>
+							<div class="panel-body">
+								<div class="panel panel-default">
+								 	<div class="panel-body">
+								   		<div class="row">
+									<div class="col-xs-4">
+										<label for="requerimento">Selecione uma Sercretaria/Órgão</label>
+										<select id="requerimento" name="requerimento" class="form-control">
+											<option value="0">Selecione...</option>
+											<option value="1">Secretaria de Saúde</option>
+										</select>
+									</div>
+									<div class="help=block">
+										&nbsp;
+									</div>
+								</div> 
+								  	</div>
+								</div>
+								<form role="form">
+									<div class="row">
+										<div class="col-xs-3">
+											<label for="filtrar">Filtrar por:</label>
+											<select id="filtrar" name="filtrar" class="form-control">
+												<option value="0">Selecione...</option>
+												<option value="1">Nome</option>
+												<option value="2">Nome A > Z</option>
+												<option value="3">Nome Z > A</option>
+												<option value="4">Secretaria</option>
+												<option value="5" class="alert-danger" title="Não recomendável" bs-tooltip />Todos</option>
+											</select>
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="col-xs-5">
+											<label for="dados">Dados</label>
+											<input id="dados" type="text" placeholder="Dados" class="form-control" title="Dados da busca. Ex: Imunização " bs-tooltip />
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-2">
+											<button type="button" class="btn btn-primary">
+												Buscar
+											</button>
+										</div>
+									</div>
+									<div class="alert alert-warning" role="alert">
+										<strong>Ops!</strong> Nenhum registro encontrado. <a class="alert-link" href="javascript:void(0);" ng-click="Data.newTab('views/rh/unidades/cadastrar.html')">Cadastrar agora?</a>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<table class="table table-bordered table-hover table-responsive">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Nome</th>
+														<th>Endereço</th>
+														<th>E-mail</th>
+														<th>Fone/Fax</th>
+														<th colspan="2" style="margin-left: 2px">Operações</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>Epidemiologia</td>
+														<td>Rua Tal, N° 12, Centro</td>
+														<td>epdemiologia.saude@crato.ce.gov.br</td>
+														<td>(88)9999 9999</a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Epidemiologia","Quantidade de Servidores ":"20","secretaria":"Secretaria da Saúde","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>Imunização</td>
+														<td>Rua Tal, N° 8, São Miguel</td>
+														<td>seduc@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td> </a></td> 
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE EDUCAÇÃO e tem como coordenador atual: francisca Severina"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>Central de Marcação</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>seplad@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE DESENVOLVIMENTO SOCIAL e tem como coordenador atual: Antonia Lindimara"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td>PACS</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>segri@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>5</td>
+														<td>PSF Fábio Pinheiro Esmeraldo</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>segov@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>6</td>
+														<td>Posto da Grota</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>seinfra@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>7</td>
+														<td>PAM</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>secult@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>8</td>
+														<td>Centro de Nutrição</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>seplad@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>9</td>
+														<td>Centro de Saúde Teodorico Teles</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>sefina@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+													<tr>
+														<td>10</td>
+														<td>Centro de Saúde Raimundo Bezrra de Farias</td>
+														<td>Rua Tal, N° 5, Centro</td>
+														<td>gabinete@crato.ce.gov.br</td>
+														<td>(88)9999 9999</td></a></td>
+														<td>
+														<button type="button" class="btn btn-small btn-warning" data-animation="am-fade-and-slide-top"
+														data-template="views/exemplos/modal/modal.config.qtdservidores.html" bs-modal='{"name":"Padre Cícero","cpf":"123.456.789-10","secretaria":"Secretaria da Educação","unidade":"Unidade tal","cargo":"Professor","cargo_tp":"Tipo do Cargo"}'>
+															<i class="glyphicon glyphicon-edit"></i>
+														</button></td>
+														<td>
+														<button
+														type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+														data-content="Esta Unidade é parte integrante da SECRETARIA DE SAÚDE e tem como coordenador atual: Antonio de Sousa Cruz"
+														data-trigger="focus" bs-popover>
+															<i class="glyphicon glyphicon-search"></i>
+														</button></td>
+													</tr>
+												</tbody>
+											</table>
+											<strong>Mostrando 10 registro(s) de 126</strong>
+										</div>
+
+										<ul class="pagination">
+											<li>
+												<a href="#">&laquo;</a>
+											</li>
+											<li>
+												<a href="#">1</a>
+											</li>
+											<li>
+												<a href="#">2</a>
+											</li>
+											<li>
+												<a href="#">3</a>
+											</li>
+											<li>
+												<a href="#">4</a>
+											</li>
+											<li>
+												<a href="#">5</a>
+											</li>
+											<li>
+												<a href="#">&raquo;</a>
+											</li>
+										</ul>
+									</div>
+									<hr>
+									<div align="right" class="footer"></div>
+								</form><!-- Inputs -->
+							</div>
+						</div><!-- Panel default -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- container -->
+	<div align="right" class="footer">
+		<button type="button" class="btn btn-success">
+			Salvar
+		</button>
+		<button type="button" class="btn btn-danger">
+			Cancelar
+		</button>
+	</div>
+</div>

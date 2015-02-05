@@ -1,0 +1,59 @@
+<div class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="$hide()">
+					&times;
+				</button>
+				<h4 class="modal-title">Detalhes do Servidor</h4>
+			</div>
+			<div class="modal-body">
+
+				<div class="row">
+					<div class="col-md-3 text-center">
+						<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzPjwvZGVmcz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSI+PC9yZWN0PjxnPjx0ZXh0IHg9IjQ1LjUiIHk9IjcwIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MTQweDE0MDwvdGV4dD48L2c+PC9zdmc+" alt="{{name}}" class="img-thumbnail"/>
+					</div>
+					<div class="col-md-9">
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="2">{{item.name}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td width="120"><b>CPF</b></td><td>{{item.cpf}}</td>
+								</tr>
+								<tr>
+									<td><b>Secretaria</b></td><td>{{item.secretaria}}</td>
+								</tr>
+								<tr>
+									<td><b>Unidade</b></td><td>{{item.unidade}}</td>
+								</tr>
+								<tr>
+									<td><b>Cargo</b></td><td>{{item.cargo}}</td>
+								</tr>
+								<tr>
+									<td><b>Tipo de Cargo</b></td><td>{{item.cargo_tp}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" title="Clique para visualizar os eventos referentes ao servidor" href="javascript:void(0);" ng-click="Data.newTab('views/sistema/eventos.html')">
+					Eventos
+				</button>
+				<button type="button" class="btn btn-default" ng-click="$hide()">
+					Fechar
+				</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+

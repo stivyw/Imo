@@ -1,0 +1,304 @@
+<!----------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="content" ng-init="Data.tabs[$parent.tab.i].title='Operador'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Editar Operador</h2>
+				</div>
+				<div class="alert alert-danger" role="alert">
+					<strong>Ops!</strong> Ocorreu um <a class="alert-link" href="arquivodeajuda">erro</a> ao tentar concluir esta ação, tente novamente ou contate o <a class="alert-link" href="linkdapagcontato">suporte</a>.
+
+				</div>
+				<div class="alert alert-success" role="alert">
+					<strong>Ok!</strong> Dados gravados com sucesso.
+				</div>
+				<!-- Inputs -->
+				<form role="form">
+					<!-- Navegação -->
+					<div class="row">
+						<div class="col-xs-12">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<a data-toggle="tab" role="tab" href="#tab1">Dados Cadastrais</a>
+								</li>
+								<li class="">
+									<a data-toggle="tab" role="tab" href="#tab2">Permissões</a>
+								</li>
+							</ul>
+
+							<div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+								<div class="tab-pane active" id="tab1">
+									<!-- Dados Cadastrais -->
+									<div class="row">
+										<div class="col-xs-4">
+											<label for="nome">Nome</label>
+											<input id="nome" class="form-control" type="text" placeholder="Nome">
+											<span class="help-block">Ex: Francisco da Silva</span>
+										</div>
+										<div class="form-group col-xs-3">
+											<label for="login">Email</label>
+											<input type="text" class="form-control" id="login" placeholder="Login">
+										</div>
+										<div class="col-xs-2">
+											<label for="CPF">CPF</label>
+											<input id="cpf" class="form-control" type="text" placeholder="CPF">
+											<span class="help-block">&nbsp;</span>
+										</div>
+										<div class="col-xs-2">
+											<label class="radio">Bloqueado</label>
+											<div class="radio-inline">
+												<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+												S
+											</div>
+											<div class="radio-inline">
+												<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+												N
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-3">
+											<label for="senha">Senha</label>
+											<input type="senha" class="form-control" placeholder="Senha" required autofocus>
+											<label for="confirmacao_senha">Confirmação de senha</label>
+											<input type="password" class="form-control" placeholder="Confirmação de Senha" required>
+										</div>
+									</div>
+								</div><!-- Fim Dados Cadastrais -->
+								<!-- Permissões -->
+								<div class="tab-pane" id="tab2">
+									<div class="row">
+										<div class="col-xs-4">
+											<label for="pesquisar_permissao">Pesquisar Permissão</label>
+											<input type="text" class="form-control" id="pesquisar_permissao" placeholder="Pesquisar Permissão" />
+											<span class="help-block">&nbsp;</span>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12">
+											<table class="table table-bordered table-hover table-condensed">
+												<thead>
+													<tr>
+														<th>Permissão</th>
+														<th>Inserir</th>
+														<th>Visualizar</th>
+														<th>Editar</th>
+														<th>Bloquear</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Secretarias/Órgãos</td>
+														<td><!-- Checks -->
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Unidades</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Operadores</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Servidores</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Cargos</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Simbologias</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr>
+													<tr>
+														<td>Relatórios</td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+														<td>
+														<div class="checkbox">
+															<label>
+																<input type="checkbox" value="">
+															</label>
+														</div></td>
+													</tr><!-- Fim checks -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div><!-- Fim Permissões -->
+							</div><!-- fim da tabulação -->
+						</div>
+						<div align="right" class="footer">
+							<button type="button" class="btn btn-info">
+								Editar
+							</button>
+							<button type="button" class="btn btn-success">
+								Salvar
+							</button>
+							<button type="button" class="btn btn-danger">
+								Cancelar
+							</button>
+						</div>
+						
+					</div><!-- row2 -->
+				</form><!-- form -->
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- content -->

@@ -1,0 +1,110 @@
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Coordenação'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Requerimentos</h2>
+				</div>
+				<!-- Inputs -->
+				<form role="form" class="ng-dirty ng-valid ng-valid-date" name="datepickerForm">
+					<div class="row">
+						<div class="col-xs-5">
+							<label for="requerimento">Requerimento</label>
+							<select id="requerimento" name="requerimento" class="form-control">
+								<option value="0">Selecione...</option>
+								<option value="1">Aposentadoria por tempo de Serviço</option>
+								<option value="2">Autorização p/ a formação profissional do funcionário, quando estudante</option>
+								<option value="3">Autorizaão p/ afastamento para missão ou estudo fora do estado em outro ponto do país ou exterior</option>
+								<option value="4">Autorização p/ afastamento por motivo de casamento</option>
+								<option value="5">Auxilio funeral/doença</option>
+								<option value="6">Cômputo de tempo de seviço</option>
+								<option value="7">Coagem de férias em dobro</option>
+								<option value="8">Contage de licença especial em dobro</option>
+								<option value="9">Exoneração/dispensa</option>
+								<option value="10">Licença por acidente no trabalho, agressão não provocada e doença profissional</option>
+								<option value="11">Licença para tratamento de saúde em prorrogação</option>
+								<option value="12">Férias</option>
+								<option value="13">Licença por motivo de doença em pessoas da família</option>
+								<option value="14">Licença do funcionário para acompanhar o cônjuge</option>
+								<option value="15">Licença para o serviço militar obrigatório</option>
+								<option value="16">Licença especial</option>
+								<option value="17">Mudança de nome/retificação</option>
+								<option value="18">Pagamento relativo a exercícios anteriores</option>
+								<option value="19">Remoção</option>
+								<option value="20">Recisão de contrato</option>
+								<option value="21">Teor de título</option>
+								<option value="22">Transferência de cargo</option>
+								<option value="23">Quinquênio</option>
+								<option value="24">Licença para tratamento de saúde</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="nome">Nome</label>
+							<input type="text" id="nome" class="form-control" placeholder="Nome" title="Nome do servidor. Ex: Francisco Carlos" bs-tooltip>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3">
+							<label for="matricula">Matrícula</label>
+							<input type="text" id="matricula" class="form-control" placeholder="Matrícula" title="Matricula do Servidor. Ex: 212357" bs-tooltip>
+						</div>
+						<div class="col-xs-3">
+							<label for="cpf">CPF</label>
+							<input type="text" id="cpf" class="form-control" placeholder="CPF" title="CPF do Servidor. Ex: 0210456897" bs-tooltip>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-5">
+							<label class="radio">Permitir a divisão das férias em dois ou mais períodos</label>
+							<div class="radio-inline">
+								<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+								S
+							</div>
+							<div class="radio-inline">
+								<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+								N
+							</div>
+						</div>
+						<form name="datepickerForm" class="form-inline" role="form">
+							<!-- Date range example -->
+							<div class="form-group">
+								<label class="control-label"> <i class="fa fa-calendar"></i> <i class="fa fa-arrows-h"></i> <i class="fa fa-calendar"></i> Informe um período de tempo<small></small></label>
+								<br>
+								<div class="form-group col-xs-3">
+									<input type="text" class="form-control" ng-model="fromDate" data-date-format="dd/MM/yyyy" data-max-date="{{untilDate}}" placeholder="De" bs-datepicker>
+								</div>
+								<div class="form-group col-xs-3">
+									<input type="text" class="form-control" ng-model="untilDate" data-date-format="dd/MM/yyyy" data-min-date="{{fromDate}}" placeholder="Até" bs-datepicker>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<button type="button" class="btn btn-primary">
+								Buscar
+							</button>
+							<span class="help-block">&nbsp;</span> 
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<label for="justificativa">Justificativa</label>
+							<textarea class="form-control" rows="7" placeholder="Justificativa" title="Informe uma justificatvia para a solicitação. Ex: Contagem de tempo de serviço para dar entrada na aposentadoria" bs-tooltip></textarea>
+							<span class="help-block">&nbsp;</span> 	
+						</div>				
+					</div>
+					<div align="right" class="footer">
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-success">
+							Enviar
+						</button>
+					</div>
+					<hr>
+				</form>
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- content -->

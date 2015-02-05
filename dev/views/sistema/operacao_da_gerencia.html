@@ -1,0 +1,279 @@
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Operações da Coordenação'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Operações da Coordenação</h2>
+				</div>
+				<!-- Inputs -->
+				<form role="form" class="ng-dirty ng-valid ng-valid-date" name="datepickerForm">
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="dados">Dados</label>
+							<input id="dados" type="text" placeholder="Dados" class="form-control" title="Dados da busca. Ex: José da Silva Junior" bs-tooltip />
+							<span class="helpblock">&nbsp;</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-3" ng-class="{'has-error': datepickerForm.date.$invalid}">
+							<label class="control-label"><i class="fa fa-calendar"></i> Data de Nascimento</label>
+							<input class="form-control" ng-model="selectedDate" name="date" bs-datepicker type="text" data-date-format="dd/MM/yyyy" data-max-date="today" data-min-date="01/01/1850" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<button type="button" class="btn btn-primary">
+								Buscar
+							</button>
+						</div>
+					</div>
+					<div class="alert alert-warning" role="alert">
+						<strong>Ops!</strong> Nenhum registro encontrado. <a class="alert-link" href="orgaos_cadastrar.html">Cadastrar agora?</a>
+					</div>
+					<div class="row">
+						<div class="table-responsive">
+							<table class="table table-bordered table-condensed table-hover">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nome</th>
+										<th>CPF</th>
+										<th>Cargo</th>
+										<th>Natureza</th>
+										<th>Selecione</th>
+										<th>Status</th>
+										<th>Detalhes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>José da silva</td>
+										<td>028015247874</td>
+										<td>Assistente Administrativo</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Ativo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor em atividade"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Antonio de Sousa</td>
+										<td>028015247874</td>
+										<td>Professor</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Ativo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor em atividade"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="info">
+										<td>1</td>
+										<td>Maria das Graças</td>
+										<td>028015247874</td>
+										<td>Coordenador Pedagógico</td>
+										<td>Cargo em Comissão</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Licença</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor encontra-se licença Maternidade prevista na LEI N° 8.861, DE 25 DE MARÇO DE 1994. Previsão de retorno: 01/05/2015"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="danger">
+										<td>1</td>
+										<td>Francisco de Assis</td>
+										<td>028015247874</td>
+										<td>Guarda Municipal</td>
+										<td>Contrato temporário</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Solicitação de Férias enviada</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Ops, De acordo com o regimento interno da Divisão de Recursos Humanos, seu pedido de férias foi negado por ultrapassar a quantidade de Servidores ausentes na competência de 11/2014 desta unidade!"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="warning">
+										<td>1</td>
+										<td>Geraldo Azevedo</td>
+										<td>028015247874</td>
+										<td>Professor</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Solicitação de Férias enviada</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Agurdando aprovação da divisão de Recursos Humanos"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="success">
+										<td>1</td>
+										<td>Maria Sebastaiana</td>
+										<td>028015247874</td>
+										<td>Aux. Serviços Gerais</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Ferias</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor encontra-se de férias referente ao período 11/2014 <br /> Previsão de retorno: 01/12/2014"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="warning">
+										<td>1</td>
+										<td>José Harickson Nicolau Ursulino</td>
+										<td>028015247874</td>
+										<td>Assistente Administrativo</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Solicitação de Férias enviada</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Agurdando aprovação da divisão de Recursos Humanos"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr class="warning">
+										<td>1</td>
+										<td>Cicera das Neves</td>
+										<td>028015247874</td>
+										<td>Diretor</td>
+										<td>Cargo em Comissão</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Solicitação de Férias enviada</td>
+
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Agurdando aprovação da divisão de Recursos Humanos"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+
+									</tr>
+									<tr class="danger">
+										<td>1</td>
+										<td>Francisco Siqueira Campos</td>
+										<td>028015247874</td>
+										<td>Professor</td>
+										<td>Efetivo</td>
+										<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+											</label>
+										</div></td>
+										<td>Solicitação de Férias enviada</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Ops, Seu pedido foi negado por não respeitar o período hábil de solicitação de férias para a competência 11/2014. "
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<strong>Mostrando 10 registro(s) de 26</strong>
+						</div><!-- /.table-responsive -->
+						<ul class="pagination">
+							<li>
+								<a href="#">&laquo;</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+					<div align="right" class="footer">
+						<!-- Button trigger modal -->
+						<a class="btn btn-small btn-primary" type="button" href="javascript:void(0);" ng-click="Data.newTab({url:'views/sistema/operacao_da_gerencia_selecionar.html'})">
+							Avançar
+						</a>
+					</div>
+					<hr>
+				</form>
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- content -->

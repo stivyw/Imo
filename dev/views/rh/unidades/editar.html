@@ -1,0 +1,100 @@
+<div ng-init="tab.title='Unidades'"></div>
+<div ng-init="tab.icon='glyphicon glyphicon-edit'"></div>
+<div ng-init="orgaos=Data.list({url:'model/Orgao'})"></div>
+<div ng-init="edit=Data.edit({url:'model/Unidade', scope: tab}).load(tab.id, ['orgao', 'vagas.servidor', 'vagas.cargo'])"></div>
+<div ng-if="!tab.id" ng-init="tab.stat=2"></div>
+<div ng-if="!tab.id" ng-init="edit.disabled=false"></div>
+
+
+<bs-alert type="danger" arr="edit.res.error">
+	<strong>Ops!</strong> Erro ao tentar concluir a ação, corrija os erros mostrados a seguir e tente novamente ou contate o <a class="alert-link" href="http://caririweb.com/suport" target="_blank">suporte</a>.
+</bs-alert>
+
+<div class="alert alert-success" role="alert" ng-if="edit.res.ok">
+	<strong>Ok!</strong> Dados gravados com sucesso.
+</div>
+
+
+<ul class="nav nav-tabs" role="tablist">
+	<li ng-class="{active:SelfTab==1}"><a ng-click="SelfTab=1" href="javascript:void(0);" ng-init="SelfTab=1">Dados</a></li>
+	<li ng-class="{active:SelfTab==2}"><a ng-click="SelfTab=2" href="javascript:void(0);">Vagas</a></li>
+</ul>
+
+<div class="tab-content">
+	<div ng-class="{active:SelfTab==1}" class="tab-pane">
+		<!-- Dados -->
+		<div class="row">
+			<div class="col-xs-12">
+
+				<form>
+					<div class="row">
+
+						<div class="col-md-4">
+							<label for="secretaria">Secretaria/Órgão de vínculo</label>
+							<input ng-disabled="edit.disabled" type="text" id="secretaria" ng-model="edit.pseudo.orgao.nome"
+								typeahead-on-select="edit.form.orgao_id=$item.id" typeahead="opt as opt.nome for opt in orgaos.options({nome:$viewValue}) | filter:{nome:$viewValue}" typeahead-loading="true" class="form-control">
+							<span class="help-block">Escolha uma secretaria</span>
+						</div>
+
+					</div>
+					<div class="row">
+						<bs-txt disabled="edit.disabled" class="col-md-6" md="edit.form.nome" label="Nome" >Nome</bs-txt>
+						<bs-txt disabled="edit.disabled" class="col-md-3" md="edit.form.tel" label="Telefone" placeholder="(xx)xxxxxxxx">Informe o telefone</bs-txt>
+						<bs-txt disabled="edit.disabled" class="col-md-3" md="edit.form.mail" label="Email" >Email</bs-txt>
+					</div>
+					<div class="row">
+						<bs-txt disabled="edit.disabled" class="col-md-2" md="edit.form.end_cep" label="CEP" >
+							<a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+						</bs-txt>
+						<bs-sel disabled="edit.disabled" class="col-md-2" md="edit.form.end_tipo" label="Tipo de logradouro:" opts="Data.CFG.SELECTS.TPS_LOGRADOURO"></bs-sel>
+						<bs-txt disabled="edit.disabled" class="col-md-4" md="edit.form.end_logradouro" label="Logradouro" ></bs-txt>
+						<bs-txt disabled="edit.disabled" class="col-md-3" md="edit.form.end_bairro" label="Bairro" ></bs-txt>
+						<bs-txt disabled="edit.disabled" class="col-md-1" md="edit.form.end_numero" label="Número" >Número do endereço. Ex: S/N</bs-txt>
+					</div>
+					<hr>
+					<bs-footer class="footer" align="right"></bs-footer>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<!-- Vagas -->
+	<div ng-class="{active:SelfTab==2}" class="tab-pane">
+
+		<div class="alert alert-success" role="alert" ng-if="!edit.form.vagas.length">
+			<strong>Ops!</strong> Nenhuma vaga cadastrada para esta unidade, clique em nova vaga para adicionar.
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<pagination class="pull-right"></pagination>
+				<table class="table table-bordered table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome do servidor</th>
+							<th>Cargo</th>
+							<th width="300px">Operações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in edit.form.vagas" ng-class="{danger:!item.servidor}">
+							<td>{{item.id}}</td>
+							<td>{{item.servidor.nome}}</td>
+							<td>{{item.cargo.nome}}</td>
+							<td>
+								<!--select ng-model="sel" ng-options="opt.modal as opt.act for opt in [{act:'Exonerar',modal:'1'}, {act:'Transferir',modal:'2'}]"></select-->
+								<a class="btn btn-small btn-warning" href="#" ng-if="!item.servidor" data-template="{{'/Test/dev/views/rh/unidades/modal.lotar.html'}}" bs-modal="{item:item}"><i class="glyphicon glyphicon-edit"></i></a>
+								<a class="btn btn-small btn-info" href="#" ng-if="item.servidor"><i class="glyphicon glyphicon-search"></i></a>
+								<a class="btn btn-small btn-danger" href="#" ng-if="item.servidor"><i class="glyphicon glyphicon-remove"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<pagination class="pull-right"></pagination>
+			</div>
+		</div>
+
+
+	</div>
+</div>

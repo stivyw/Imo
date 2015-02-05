@@ -1,0 +1,170 @@
+		<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Editar Cargos'">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-11">
+							<div class="page-header">
+								<h2>Editar Cargo</h2>
+							</div>
+							<div class="alert alert-danger" role="alert">
+								<strong>Ops!</strong> Você precisa de uma <a class="alert-link" href="simbologia_cadastrar.html">Simbologia</a> para cadastrar um cargo comissionado.
+							</div>
+							<div class="alert alert-danger" role="alert">
+								<strong>Ops!</strong> Ocorreu um <a class="alert-link" href="arquivodeajuda">erro</a> ao tentar concluir esta ação, tente novamente ou contate o <a class="alert-link" href="linkdapagcontato">suporte</a>.
+
+							</div>
+							<div class="alert alert-success" role="alert">
+								<strong>Ok!</strong> Dados gravados com sucesso.
+							</div>
+							<!-- Inputs -->
+							<form role="form">
+								<div class="row">
+									<div class="col-xs-4">
+										<label for="nome">Nome</label>
+										<input id="nome" class="form-control" type="text" placeholder="Nome" title="Nome para o Cargo. Ex: Assistente Administrativo " bs-tooltip />
+									</div>
+									<div class="col-xs-2">
+										<label for="qtd_vagas">Qtd. Vagas</label>
+										<input id="qtd_vagas" class="form-control" type="text" placeholder="Qtd. Vagas" title="Quantidade de vagas disponibilizadas para o Cargo. Ex: 150 " bs-tooltip />
+									</div>
+									<div class="col-xs-3">
+										<label for="escolaridade">Escolaridade minima</label>
+										<select id="escolaridade" class="form-control">
+											<option value="0">Selecione...</option>
+											<option value="1">Fundamental incompleto</option>
+											<option value="2">Fundamental completo</option>
+											<option value="3">Médio incompleto</option>
+											<option value="4">Médio completo</option>
+											<option value="5">Superior</option>
+											<option value="6">Outros</option>
+										</select>
+										<span class="help-block">&nbsp;</span>
+									</div>
+									<div class="col-xs-3">
+										<label for="carga_horaria">Carga Horaria semanal</label>
+										<input id="carga_horaria" type="text" placeholder="Carga horária" class="form-control" title="Carga horária semanal determinada para o Cargo. Ex: 40 " bs-tooltip />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-3">
+										<label for="grupos_ocupacionais">Grupos Ocupacionais</label>
+										<select id="grupos_ocupacionais" class="form-control">
+											<option value="0">Selecione...</option>
+											<option value="1">ANS - Atividades de nível superior</option>
+											<option value="2">AAD - Atividades de apoio administrativo</option>
+											<option value="3">AAO - Atividades de apoio operacional</option>
+											<option value="4">Outros</option>
+										</select>
+									</div>
+									<div class="col-xs-2">
+										<label for="tipo_cargo">Tipo de cargo</label>
+										<select id="tipo_cargo" class="form-control">
+											<option value="0">Selecione...</option>
+											<option value="1">Efetivo</option>
+											<option value="2">Temporario</option>
+											<option value="3">Comissionado</option>
+											<option value="4">Eletivo</option>
+											<option value="5">Estatutario</option>
+											<option value="6">Outros</option>
+										</select>
+									</div>
+									<div class="col-xs-2">
+										<label for="simbologia">Simbologia</label>
+										<input id="simbologia" type="text"  placeholder="Simbologia" class="form-control" title="Insira uma Simbologia para o Cargo. Ex: CDS01 " bs-tooltip />
+									</div>
+									<div class="col-xs-2">
+										<label for="salario_base">Salario base</label>
+										<input id="salario_base" type="text" class="form-control" placeholder="Salario base" title="Ex: Salário base para o cargo. Ex: 72400 " bs-tooltip />
+									</div>
+									<div class="col-xs-2">
+									    <label for="check">Editar</label>
+									    <div class="dorm-inline">
+									    	<input type="checkbox" title="Habilitando este campo, você será capaz de alterar o valor do Salário Base, que por padrão trará o valor do Salário Mínimo" bs-tooltip>
+									    </div>
+									</div>
+								</div>
+								<span class="help-block">&nbsp;</span>
+								<!-- tabela -->
+								<table class="table table-bordered table-hover table-condensed" style="width:50%">
+									<thead>
+										<tr>
+											<th>Classe</th>
+											<th>Referencia Mín.</th>
+											<th>Referencia Max.</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>I</td>
+											<td>
+											<input class="form-control" id="referencia_min" name="referencia_min" type="text" placeholder=""/>
+											</td>
+											<td>
+											<input class="form-control" id="referencia_max" name="referencia_max" type="text" placeholder=""/>
+											</td>
+										</tr>
+										<tr>
+											<td>II</td>
+											<td>
+											<input class="form-control" id="referencia_min" name="referencia_min" type="text" placeholder=""/>
+											</td>
+											<td>
+											<input class="form-control" id="referencia_max" name="referencia_max" type="text" placeholder=""/>
+											</td>
+										</tr>
+										<tr>
+											<td>III</td>
+											<td>
+											<input class="form-control" id="referencia_min" name="referencia_min" type="text" placeholder=""/>
+											</td>
+											<td>
+											<input class="form-control" id="referencia_max" name="referencia_max" type="text" placeholder=""/>
+											</td>
+										</tr>
+										<tr>
+											<td>IV</td>
+											<td>
+											<input class="form-control" id="referencia_min" name="referencia_min" type="text" placeholder=""/>
+											</td>
+											<td>
+											<input class="form-control" id="referencia_max" name="referencia_max" type="text" placeholder=""/>
+											</td>
+										</tr>
+										<tr>
+											<td>V</td>
+											<td>
+											<input class="form-control" id="referencia_min" name="referencia_min" type="text" placeholder=""/>
+											</td>
+											<td>
+											<input class="form-control" id="referencia_max" name="referencia_max" type="text" placeholder=""/>
+											</td>
+										</tr>
+									</tbody>
+								</table><!-- fim da tabela -->
+								<div class="row">
+									<div class="col-xs-5">
+										<label for="atribuicoes">Atribuições do cargo</label>
+										<textarea class="form-control" rows="6" placeholder="Descreva as atribuições do cargo"></textarea> 	
+									</div>
+									<div class="col-xs-5">
+										<label for="atribuicoes">Requisitos de provimento</label>
+										<textarea id="requisitos de provimento" class="form-control" rows="6" placeholder="Requisitos de provimento"></textarea>
+									</div>
+								</div>
+								<hr>
+								<div align="right" class="footer">
+									<button type="button" class="btn btn-info">
+										Editar
+									</button>
+									<button type="button" class="btn btn-success">
+										Salvar
+									</button>
+									<button type="button" class="btn btn-danger">
+										Cancelar
+									</button>
+								</div>
+							</form><!-- Inputs -->
+						</div>
+					</div>
+				</div><!-- container -->
+			</div> <!-- Fim content -->

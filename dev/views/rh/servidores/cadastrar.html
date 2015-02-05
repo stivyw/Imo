@@ -1,0 +1,331 @@
+<ul class="nav nav-tabs" role="tablist" ng-init="Data.tabs[$parent.tab.i].title='Cadastrar Servidor'">
+	<li ng-class="{active:SelfTab==1}">
+		<a ng-click="SelfTab=1" href="javascript:void(0);" ng-init="SelfTab=1">Dados Pessoais</a>
+	</li>
+	<li ng-class="{active:SelfTab==2}">
+		<a ng-click="SelfTab=2" href="javascript:void(0);">Dados Residênciais</a>
+	</li>
+	<li ng-class="{active:SelfTab==3}">
+		<a ng-click="SelfTab=3" href="javascript:void(0);">Dados Funcionais</a>
+	</li>
+	<li ng-class="{active:SelfTab==4}">
+		<a ng-click="SelfTab=4" href="javascript:void(0);">Anexos</a>
+	</li>
+</ul>
+
+<div class="tab-content">
+	<div ng-class="{active:SelfTab==1}" class="tab-pane">
+		<!-- Pessoais -->
+		<div class="row">
+			<div class="col-xs-6">
+				<label for="nome">Nome</label>
+				<input id="nome" name="nome" type="text" placeholder="Nome" class="form-control" title="Insira o nome do servidor" bs-tooltip />
+			</div>
+			<div class="col-xs-3">
+				<label for="estado_civil">Estado Civíl</label>
+				<select id="estado_civil" name="estado_civil" class="form-control">
+					<option value="0">Selecione...</option>
+					<option value="1">Solteiro</option>
+					<option value="2">Casado</option>
+					<option value="3">Divorciado</option>
+					<option value="4">Viúvo</option>
+				</select>
+			</div>
+			<div class="col-xs-3">
+				<label class="radio">Sexo</label>
+				<div class="radio-inline">
+					<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+					Masculino
+				</div>
+				<div class="radio-inline">
+					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+					Feminino
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<label for="filiacao_mae">Nome da Mãe</label>
+				<input type="text" id="filiacao_mae" placeholder="Nome da Mãe" class="form-control" title="Nome da mãe do Servidor" bs-tooltip />
+			</div>
+			<div class="col-xs-6">
+				<label for="filiacao_pai">Nome do Pai</label>
+				<input type="text" id="filiacao_pai" placeholder="Nome do Pai"  class="form-control" title="Nome do pai do Servidor" bs-tooltip />
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-2" ng-class="{'has-error': datepickerForm.date.$invalid}">
+				<label class="control-label"><i class="fa fa-calendar"></i> Data de Nascimento</label>
+				<input class="form-control" ng-model="selectedDate" name="date" bs-datepicker type="text" data-date-format="dd/MM/yyyy" data-max-date="today" data-min-date="01/01/1850" />
+			</div>
+			<div class="col-xs-4">
+				<label for="nacionalidade">Nacionalidade</label>
+				<input type="text" id="nacionalidade" placeholder="Nacionalidade" class="form-control" title="Nacionalidade do Servidor. Ex: Brasileiro" bs-tooltip />
+			</div>
+			<div class="col-xs-2">
+				<label for="uf">UF</label>
+				<select id="uf" name="uf" class="form-control">
+					<option value="0">Selecione...</option>
+					<option value="1">Acre</option>
+					<option value="2">Amapá</option>
+					<option value="3">Bahia</option>
+					<option value="4">Ceara</option>
+				</select>
+			</div>
+			<div class="col-xs-3">
+				<label for="municipio_nascimento">Município de nascimento</label>
+				<select id="municipio_nascimento" name="municipio_nascimento" class="form-control">
+					<option value="0">Selecione...</option>
+					<option value="1">Crato</option>
+					<option value="2">Juazeiro</option>
+					<option value="3">Barbalha</option>
+					<option value="4">Missão Velha</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">
+				<label for="telefone">Telefone</label>
+				<input id="telefone" name="telefone" type="text" placeholder="Telefone" class="form-control" title="Insira o telefone de contato do Servidor" bs-tooltip />
+			</div>
+			<div class="col-xs-2">
+				<label for="telefone2">Telefone 2</label>
+				<input id="telefone2" name="telefone2" type="text" placeholder="Telefone 2" class="form-control" title="Insira o telefone2 de contato do Servidor" bs-tooltip />
+			</div>
+			<div class="col-xs-4">
+				<label for="email">Email:</label>
+				<input id="email" name="email" type="email" placeholder="Email" class="form-control" title="Insira o email do Servidor. Ex: servidor@meuemail.com" bs-tooltip />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2">
+				<label for="">Escolaridade</label>
+				<select name="objetivo" class="form-control">
+					<option value="0">Selecione...</option>
+					<option value="1">Fundamental Incompleto</option>
+					<option value="1">Fundamental Completo</option>
+					<option value="2">Médio Incompleto</option>
+					<option value="3">Médio Completo</option>
+					<option value="4">Superior Incompleto</option>
+					<option value="5">Superior Completo</option>
+				</select>
+				<span class="help-block">&nbsp;</span>
+			</div>
+			<div class="col-xs-3">
+				<label for="conselho_classe">Conselho de Classe</label>
+				<input type="text" id="conselho_classe" placeholder="Conselho" class="form-control" title="Insira o conselho de classe (caso possua) do Servidor. Ex: Conselho Regional de Engenharia" bs-tooltip  />
+			</div>
+			<div class="col-xs-1">
+				<label for="num_conselho">N°</label>
+				<input type="text" id="num_conselho" placeholder="N°" class="form-control" title="Insira o número do conselho de classe do Servidor. Ex: 1235" bs-tooltip  />
+			</div>
+		</div>
+	</div><!-- Fim Pessoais -->
+</div>
+<div ng-class="{active:SelfTab==2}" class="tab-pane">
+	<!-- Residenciais -->
+	<div class="row">
+		<div class="col-xs-2">
+			<label for="cep">CEP</label>
+			<input id="cep" name="cep" type="text" class="form-control" />
+			<a href="http://www.buscacep.correios.com.br/"target="_blank"><small><u><i>Buscar CEP</i></u></small></a>
+		</div>
+		<div class="col-xs-2">
+			<label for="">Tipo de Logradouro</label>
+			<select name="nivel_requisitado" class="form-control">
+				<option value="0">Selecione...</option>
+				<option value="1">Rua</option>
+				<option value="2">Avenida</option>
+				<option value="3">Beco</option>
+				<option value="4">Travessa</option>
+				<option value="5">Sitio</option>
+				<option value="6">Alto</option>
+				<option value="7">Outro...</option>
+			</select>
+			<span class="help-block">&nbsp;</span>
+		</div>
+		<div class="col-xs-4">
+			<label for="logradouro">Logradouro</label>
+			<input id="logradouro" name="logradouro" type="text" class="form-control" title="Insira o logradouro do Servidor. Ex: Rua Barbara de Alencar " bs-tooltip  />
+		</div>
+		<div class="col-xs-1">
+			<label for="numero">Número</label>
+			<input id="numero" name="numero" type="text" class="form-control" title="Insira o número da residência do Servidor" bs-tooltip  />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<label for="municipio">Município de Residência</label>
+			<input id="municipio" name="municipio" placeholder="Municipio" type="text" class="form-control" title="Insira o município de residência do Servidor" bs-tooltip  />
+		</div>
+		<div class="col-xs-3">
+			<label for="bairro">Bairro</label>
+			<input id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control" title="Insira o bairro do Servidor" bs-tooltip  />
+		</div>
+		<div class="col-xs-3">
+			<label for="complemento">Complemento</label>
+			<input id="complemento" name="complemento" type="text" class="form-control" title="Insira um complemento de endereço para o Servidor. Ex: Apartamento 2b" bs-tooltip  />
+		</div>
+	</div>
+</div><!-- Fim Residênciais -->
+
+</div>
+<div ng-class="{active:SelfTab==3}" class="tab-pane">
+	<div class="row"><!-- Funcionais -->
+		<div class="col-xs-2">
+			<label for="matricula">Matrícula</label>
+			<input type="text" id="matricula" placeholder="Matricula" class="form-control" title="Insira o cod de matrícula do servidor. Ex: 25042014" bs-tooltip  />
+		</div>
+		<div class="col-xs-2">
+			<label for="data_admissao">Data de Admissão</label>
+			<input type="text" id="data_admissao" placeholder="Data de Admissão" class="form-control" title="Insira a data de admissão do Servidor" bs-tooltip  />
+		</div>
+		<div class="col-xs-2">
+			<label for="vinculo_empregaticio">Vínculo</label>
+			<select name="vinculo_empregaticio" class="form-control">
+				<option value="0">Selecione...</option>
+				<option value="1">Cargo em comissão</option>
+				<option value="2">Efetivo</option>
+				<option value="3">Eletivo</option>
+				<option value="4">Estatutario</option>
+				<option value="5">Temporario</option>
+				<option value="6">Outro...</option>
+			</select>
+		</div>
+		<div class="col-xs-2">
+			<label for="natureza">Natureza</label>
+			<select name="natureza" class="form-control">
+				<option value="0">Selecione...</option>
+				<option value="1">Cargo em comissão</option>
+				<option value="2">Efetivo</option>
+				<option value="3">Eletivo</option>
+				<option value="4">Temporario</option>
+				<option value="5">Outro...</option>
+			</select>
+		</div>
+		<div class="col-xs-2">
+			<label for="tipo_admissao">Tipo de Admissão</label>
+			<select name="tipo_admissao" class="form-control">
+				<option value="0">Selecione...</option>
+				<option value="1">Cargo em comissão</option>
+				<option value="2">Concurso público</option>
+				<option value="3">Contrato temporario</option>
+				<option value="4">Eletivo</option>
+				<option value="5">Estatuto</option>
+				<option value="5">Outro...</option>
+			</select>
+		</div>
+		<div class="col-xs-2">
+			<label class="radio">Situação</label>
+			<div class="radio-inline">
+				<input type="radio" name="optionsRadios" id="situacaoativo" value="option1" checked>
+				Ativo
+			</div>
+			<div class="radio-inline">
+				<input type="radio" name="optionsRadios" id="situacaoinativo" value="option2">
+				Inativo
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-xs-2" ng-class="{'has-error': datepickerForm.date.$invalid}">
+				<label class="control-label"><i class="fa fa-calendar"></i> Ini contrato temp</label>
+				<input class="form-control" ng-model="inicio" name="date" bs-datepicker type="text" data-date-format="dd/MM/yyyy" data-max-date="today" data-min-date="01/01/1850" title="Insira a data de início do contrato temporário do Servidor. Obs: Campo obrigatório para servidores vinculados como: 'Contrato Temporário'" bs-tooltip/>
+		</div>
+		<div class="form-group col-xs-2" ng-class="{'has-error': datepickerForm.date.$invalid}">
+				<label class="control-label"><i class="fa fa-calendar"></i> Ini contrato temp</label>
+				<input class="form-control" ng-model="final" name="date" bs-datepicker type="text" data-date-format="dd/MM/yyyy" data-max-date="today" data-min-date="01/01/1850" title="Insira a data de término do contrato temporário do Servidor. Obs: Campo obrigatório para servidores vinculados como: 'Contrato Temporário'" bs-tooltip />
+		</div>
+		<div class="col-xs-2">
+			<label for="ordem">Ordem</label>
+			<input type="text" id="ordem" placeholder="Ordem" class="form-control" title="Ordem" bs-tooltip  />
+		</div>
+		<div class="col-xs-2">
+			<label for="serie">Série</label>
+			<input type="text" id="serie" placeholder="Série" class="form-control" title="Série" bs-tooltip  />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3">
+			<label for="tipo_previdencia">Tipo de Previdência</label>
+			<input type="text" id="tpo_previdencia" placeholder="Tipo de Previdência" class="form-control" title="Insira o tipo de Previdência do Servidor. Ex: Previdência Municipal" bs-tooltip  />
+		</div>
+	</div><!-- Fim Funcionais -->
+</div>
+<div ng-class="{active:SelfTab==4}" class="tab-pane">
+	<span class="help-block">&nbsp;</span>
+	<div class="row">
+		<div class="col-xs-12">
+			<legend>
+				<strong>Selecione os documentos entregues pelo Servidor</strong>
+			</legend>
+		</div>
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Documentos</th>
+				<th>Buscar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="danger" >
+				<td>RG</td>
+				<td>
+				<input type="file" id="" name="rg" placeholder="Selecionar..."  />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>CPF</td>
+				<td>
+				<input type="file" id="" name="cpf" placeholder="Selecionar..." />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>Comprovante de Residência</td>
+				<td>
+				<input type="file" id="" name="comprovante_residencia" placeholder="Selecionar..."/>
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>CTPS</td>
+				<td>
+				<input type="file" id="" name="ctps" placeholder="Selecionar..." />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>Título de Eleitor</td>
+				<td>
+				<input type="file" id="" name="titulo_eleitor" placeholder="Selecionar..." />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>Diploma Nível Médio</td>
+				<td>
+				<input type="file" id="" name="diploma_nivel_medio" placeholder="Selecionar..." />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>Diploma Nível Superior</td>
+				<td>
+				<input type="file" id="" name="diploma_nivel_superior" placeholder="Selecionar..." />
+				</td>
+			</tr>
+			<tr class="danger" >
+				<td>Foto 3x4</td>
+				<td>
+				<input type="file" id="" name="foto" placeholder="Selecionar..." />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div align="right" class="footer">
+	<button type="button" class="btn btn-success">
+		Salvar
+	</button>
+	<button type="button" class="btn btn-danger">
+		Cancelar
+	</button>
+</div>
+</div>

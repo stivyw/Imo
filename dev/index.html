@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+	<title>DashW</title>
+	<meta name="_token" content="Stivy Wenderson">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+	<!--meta name="viewport" content="width=device-width, initial-scale=1.0" -->
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+	<!--link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"-->
+	<link rel="stylesheet" href="../../assets/angular-motion/angular-motion.css"/>
+	<link rel="stylesheet" href="App.css"/>
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+
+	<!--script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script-->
+	<!--script src="../../assets/angular-strap.min.js"></script>
+	<script src="../../assets/angular-strap.tpl.js"></script-->
+	<script src="../../assets/as/214/angular-strap.min.js"></script>
+	<script src="../../assets/afu/angular-file-upload.min.js"></script>
+	<script src="../../assets/aui/ui-utils-012/mask/mask.js"></script>
+	<script src="../../assets/aui/bs-custom/ui-bootstrap-custom-0.12.0.min.js"></script>
+	<script src="../../assets/aui/bs-custom/ui-bootstrap-custom-tpls-0.12.0.min.js"></script>
+	
+	<script src="../../assets/as/as.tpl.js"></script>
+	<script src="App.js"></script>
+
+	
+	
+</head>
+<body>
+	<header></header>
+	<div id="sw-main">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" ng-controller="TopBar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-class="{collapsed:Collapse}" ng-click="Collapse=!Collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" ng-class="{in:Collapse}">
+
+			 <ul class="nav navbar-nav">
+			  <li ng-if="menu.href"><a href="#" ng-click="Data.newTab({url:item.href})" > {{menu.label}}</a></li>
+			  <li ng-repeat="menu in Data.CFG.menuBar" ng-if="menu.dpdown" class="dropdown">
+			  	<a href="#" bs-dropdown="menu" data-template="tab/tab.tpl.html"> {{menu.label}}<span class="caret"></span></a>
+			  </li>
+			 </ul>
+
+	  <div class="navbar-right" ng-if="user">
+	  	Olá, {{user.name}} | <a href="#" class="btn btn-danger" ng-click="logout()">Sair</a> | dev
+	  </div>
+      <form class="navbar-form navbar-right" role="search" style="margin-top:5px;margin-bottom:5px" ng-if="!user">
+        <div class="form-group">
+          <input type="text" ng-model="username" class="form-control input-sm" placeholder="Mail">
+        </div>
+        <div class="form-group">
+          <input type="password" ng-model="password" class="form-control input-sm" placeholder="xxxx">
+        </div>
+        <button type="submit" ng-click="login()" class="btn btn-default btn-sm">Ok</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+		<div id="content" class="ngTabs" ng-controller="Tabs" >
+			<ul class="nav nav-tabs ngNav">
+			  <li ng-repeat="tab in Data.tabs" class="ngTab" ng-class="{active : Data.tabIndex == tab.i}">
+				<a ng-click="Data.tabIndex = tab.i" href="#" ng-class="{'loading':!tab.stat,'ok':tab.stat==2,'error':tab.stat==3}">
+				 	<span ng-if="tab.icon" class="glyphicon" ng-class="tab.icon"></span>
+				 	<span ng-if="!tab.icon&&!tab.stat" class="glyphicon glyphicon-refresh" ng-class="tab.icon"></span> {{tab.title}}
+				</a>
+				<span class="close" ng-if="!tab.fix" ng-click="Data.closeTab(tab.i)">&times;</span>
+			  </li>
+			</ul>
+			<div class="tab-container ngCont sw">
+				<div ng-repeat="tab in Data.tabs" ng-show="Data.tabIndex == tab.i"  class="tab-content" ng-class="{'active' : Data.tabIndex == tab.i}" ng-include="tab.url">
+					<div class="text-center">Carregando...</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="sw/bs/alert.html">
+<div class="alert" role="alert" ng-if="arr" ng-class="cl">
+	<div ng-transclude></div>
+	<div ng-repeat="item in arr">
+		<span class="glyphicon glyphicon-exclamation-sign"></span> <b>{{item.code}}</b>, {{item.message}}
+		<pre>{{item.dump}}</pre>
+		<a href="{{item.id}}" ng-if="item.id" class="alert-link">Ver Detalhes!</a>
+	</div>
+</div>
+	</script>
+
+	<script type="text/ng-template" id="sw/bs/txt.html">
+<label for="{{name}}">{{label}}</label>
+<input ng-disabled="disabled" id="{{name}}" ng-model="md" class="form-control" type="text" placeholder="{{placeholder}}" ui-mask="{{mask}}">
+<span class="help-block"><span ng-transclude></span>&nbsp;</span>
+	</script>
+	<script type="text/ng-template" id="sw/bs/sel.html">
+<label for="{{name}}">{{label}}</label>
+<select ng-disabled="disabled" id="{{name}}" ng-model="md" class="form-control" ng-options="key as value for (key, value) in opts"></select>
+<span class="help-block"><span ng-transclude></span>&nbsp;</span>
+	</script>
+	<script type="text/ng-template" id="sw/bs/rad.html">
+<label>{{label}}</label>
+<div class="btn-group" ng-model="$parent.md" bs-radio-group>
+  <label ng-repeat="(key, val) in opts" class="btn btn-default" ng-class="{disabled:disabled}" for="{{name + '_' + $index}}">
+  	<input type="radio" id="{{name + '_' + $index}}" class="btn btn-default" value="{{key}}" ng-disabled="disabled"> {{val}}
+  </label>
+</div>
+<span class="help-block"><span ng-transclude></span>&nbsp;</span>
+	</script>
+	<script type="text/ng-template" id="sw/bs/upl.html">
+<div class="bsUpl">
+	<label>{{label}}&nbsp;</label>
+
+	<div class="bar-container col-xs-8">
+		<div ng-show="file.progress">
+			
+			<div class="progress">
+<div class="progress-bar progress-bar-success progress-bar-striped" ng-class="{'progress-bar-success':!file.error,'progress-bar-danger':file.error}" ng-style="{width:file.progress + '%'}">
+{{file.progress}}%
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="exists col-xs-4">
+		<button ng-disabled="disabled" class="btn btn-success btn-block" ng-show="!md&&!file.progress" ng-file-select ng-file-change="upload($files)" ng-disabled="disabled" type="button">
+			<span class="glyphicon glyphicon-upload"></span> 
+		</button>
+	
+		<a ng-disabled="disabled" class="btn btn-info" ng-show="md" href="{{'/files/' + md.name +'.'+ md.ext}}" target="_blank" >
+			<span class="glyphicon glyphicon-search"></span>
+		</a>
+		<button ng-disabled="disabled" class="btn btn-danger" ng-show="md" ng-click="remove(md)" type="button">
+			<span class="glyphicon glyphicon-remove-circle"></span>
+		</button>
+	</div>
+</div>
+	</script>
+	<script type="text/ng-template" id="sw/bs/cal.html">
+<label for="{{name}}"><span class="glyphicon glyphicon-calendar"></span> {{label}}</label>
+<input class="form-control" id="{{name}}" ng-model="md" bs-datepicker data-container="body" type="text" data-date-format="dd/MM/yyyy" data-max-date="{{max}}" data-min-date="{{min}}" ng-disabled="disabled" />
+<span class="help-block"><span ng-transclude></span>&nbsp;</span>
+	</script>
+
+	<script type="text/ng-template" id="sw/bs/footer.html">
+<div class="btn-group" ng-transclude></div>
+<div class="btn-group">
+<button class="btn" ng-init="edit.disabled=true" ng-click="edit.toggleCancel()" ng-class="{'btn-info':edit.disabled,'btn-danger':!edit.disabled}" ng-disabled="tab.stat==1">
+	{{edit.disabled?'Editar':'Cancelar'}}
+</button>
+<button type="submit" class="btn" ng-disabled="edit.disabled||tab.stat==1" ng-class="{'btn-success':tab.stat!=1,'btn-warning':tab.stat==1}" ng-click="edit.save()">
+	{{tab.stat==2?'Salvar':'Carregando...'}}
+</button>
+</div>
+	</script>
+	<script type="text/ng-template" id="sw/bs/typ.html">
+<input type="text" />
+AJEITAR O TYPEAHEAD{{md}}
+<ul tabindex="-1" class="typeahead dropdown-menu ng-scope bottom-left am-flip-x" role="select" style="top: 34px; left: 15px; display: block; visibility: visible;">
+	<li role="presentation" ng-repeat="match in $matches" ng-class="{active: $index == $activeIndex}">
+		<a role="menuitem" tabindex="-1" ng-click="$select($index, $event)" ng-bind="match.label" class="ng-binding">Secretaria da Educação</a>
+	</li>
+</ul>
+	</script>
+</body>
+</html>

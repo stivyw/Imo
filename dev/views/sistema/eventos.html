@@ -1,0 +1,238 @@
+<div id="content" ng-init="Data.tabs[$parent.tab.i].title='Eventos'">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-11">
+				<div class="page-header">
+					<h2>Eventos</h2>
+				</div>
+				<!-- Inputs -->
+				<form role="form" class="ng-dirty ng-valid ng-valid-date" name="datepickerForm">
+					<div class="row">
+						<div class="col-xs-3">
+							<label for="tipo_evento">Tipo de evento</label>
+							<select id="estado_civil" name="estado_civil" class="form-control">
+								<option value="0">Selecione...</option>
+								<option value="1">Admissão</option>
+								<option value="2">Férias</option>
+								<option value="3">Seção</option>
+								<option value="4">Licença</option>
+								<option value="5">Exoneração</option>
+								<option value="6">Mudança de referência</option>
+								<option value="7">Mudança de cargo</option>
+								<option value="8">Falecimento</option>
+								<option value="8">Ordenar por data </option>
+								<option value="510">Todos</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							<label for="dados">Dados</label>
+							<input type="text" id="dados" class="form-control" placeholder="Dados" title="Dados para a busca. Ex: Francisco Carlos" bs-tooltip>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-3" ng-class="{'has-error': datepickerForm.date.$invalid}">
+							<label class="control-label"><i class="fa fa-calendar"></i> Data de Nascimento</label>
+							<input class="form-control" ng-model="selectedDate" name="date" bs-datepicker type="text" data-date-format="dd/MM/yyyy" data-max-date="today" data-min-date="01/01/1850" />
+						</div>
+					</div>
+					<div class="row">
+						<form name="datepickerForm" class="form-inline" role="form">
+							<div class="form-group">
+								<label class="control-label"><i class="fa fa-calendar"></i> Informe um período de tempo</label>
+								<br>
+								<div class="form-group col-xs-3">
+									<input type="text" class="form-control" ng-model="fromDate" data-date-format="dd-MM-yyyy" data-max-date="{{untilDate}}" placeholder="De" bs-datepicker>
+								</div>
+								<div class="form-group col-xs-3">
+									<input type="text" class="form-control" ng-model="untilDate" data-date-format="dd-MM-yyyy" data-min-date="{{fromDate}}" placeholder="Até" bs-datepicker>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							<button type="button" class="btn btn-primary">
+								Buscar
+							</button>
+						</div>
+					</div>
+					<div class="alert alert-warning" role="alert">
+						<strong>Ops!</strong> Nenhum registro encontrado. <a class="alert-link" href="orgaos_cadastrar.html">Cadastrar agora?</a>
+					</div>
+					<div class="row">
+						<div class="table-responsive">
+							<table class="table table-bordered table-condensed table-hover">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nome</th>
+										<th>Matrícula</th>
+										<th>Tipo de evento</th>
+										<th>Data da ocorrência</th>
+										<th>Detalhes</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>José da silva</td>
+										<td>3151612</td>
+										<td>Licença</td>
+										<td>14/03/2014</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Licença por motivo de saúde"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Antonio Correia</td>
+										<td>02506897</td>
+										<td>Férias</td>
+										<td>01/04/2014</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Férias na competência 04/14"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Maria das Graças</td>
+										<td>028015247874</td>
+										<td>Coordenador Pedagógico</td>
+										<td>Cargo em Comissão</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor encontra-se licença Maternidade prevista na LEI N° 8.861, DE 25 DE MARÇO DE 1994. Previsão de retorno: 01/05/2015"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Francisco de Assis</td>
+										<td>028015247874</td>
+										<td>Guarda Municipal</td>
+										<td>Contrato temporário</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Ops, De acordo com o regimento interno da Divisão de Recursos Humanos, seu pedido de férias foi negado por ultrapassar a quantidade de Servidores ausentes na competência de 11/2014 desta unidade!"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Geraldo Azevedo</td>
+										<td>028015247874</td>
+										<td>Professor</td>
+										<td>Efetivo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor em atividade"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Maria Sebastaiana</td>
+										<td>028015247874</td>
+										<td>Aux. Serviços Gerais</td>
+										<td>Efetivo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Servidor encontra-se de férias referente ao período 11/2014 <br /> Previsão de retorno: 01/12/2014"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr >
+										<td>1</td>
+										<td>José Harickson Nicolau Ursulino</td>
+										<td>028015247874</td>
+										<td>Assistente Administrativo</td>
+										<td>Efetivo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Agurdando aprovação da divisão de Recursos Humanos"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Cicera das Neves</td>
+										<td>028015247874</td>
+										<td>Diretor</td>
+										<td>Cargo em Comissão</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Agurdando aprovação da divisão de Recursos Humanos"
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Francisco Siqueira Campos</td>
+										<td>028015247874</td>
+										<td>Professor</td>
+										<td>Efetivo</td>
+										<td>
+										<button
+										type="button" class="btn btn-small btn-info" data-placement="top-right" title="Detalhes"
+										data-content="Ops, Seu pedido foi negado por não respeitar o período hábil de solicitação de férias para a competência 11/2014. "
+										data-trigger="focus" bs-popover>
+											<i class="glyphicon glyphicon-search"></i>
+										</button></td>
+									</tr>
+								</tbody>
+							</table>
+							<strong>Mostrando 10 registro(s) de 26</strong>
+						</div><!-- /.table-responsive -->
+						<ul class="pagination">
+							<li>
+								<a href="#">&laquo;</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">&raquo;</a>
+							</li>
+						</ul>
+					</div>
+					<hr>
+				</form>
+			</div><!-- col -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div><!-- content -->
